@@ -1,8 +1,19 @@
-const button5 = document.querySelector("#plusFive")
-const indicator = document.querySelector("#number-indicator")
-const disp = document.querySelector("#display-heading")
+const indicator = document.querySelector("#number-indicator");
+const disp = document.querySelector("#display-heading");
+const btns = document.querySelectorAll('button');
 
-button5.addEventListener('click', () => {
-  disp.textContent = "added 5"
-  indicator.textContent = (parseInt(indicator.textContent) + 5).toString()
-})
+
+
+function addNumber() {
+  btns.forEach(btn => {
+  btn.addEventListener('click', () => {
+  let value = btn.textContent.slice(1);
+  disp.textContent = "added " + value;
+  let currentValue = indicator.textContent;
+  let total = parseInt(currentValue) + parseInt(value);
+  indicator.textContent = total
+  })
+  })
+}
+
+addNumber();
